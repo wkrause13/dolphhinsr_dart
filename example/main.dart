@@ -6,14 +6,14 @@ void main() {
   DolphinSR dolphin = new DolphinSR();
 
   dolphin.addMasters([
-    Master(id: 1, fields: [
+    Master(id: "a", fields: [
       'คน',
       'person'
     ], combinations: [
       Combination(front: [0], back: [1]),
       Combination(front: [1], back: [0]),
     ]),
-    Master(id: 2, fields: [
+    Master(id: "b", fields: [
       'คบ',
       'To date'
     ], combinations: [

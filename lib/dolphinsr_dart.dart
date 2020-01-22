@@ -1,13 +1,13 @@
 library dolphinsr_dart;
 
-import 'package:dolphinsr_dart/src/models.dart';
-import 'package:dolphinsr_dart/src/utils.dart';
+import './src/models.dart';
+import './src/utils.dart';
 
-export 'package:dolphinsr_dart/src/models.dart';
+export './src/models.dart';
 
 class DolphinSR {
   DRState _state;
-  Map<int, Master> _masters;
+  Map<String, Master> _masters;
 
   CardsSchedule _cachedCardsSchedule;
 

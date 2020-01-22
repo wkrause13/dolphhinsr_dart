@@ -1,12 +1,12 @@
 class CardId {
-  int id;
+  String id;
   String frontJoin;
   String backJoin;
   DateTime time;
 
   String uniqueId;
 
-  CardId({int master, Combination combination}) {
+  CardId({String master, Combination combination}) {
     id = master;
     frontJoin = combination.front.join(',');
     backJoin = combination.back.join(',');
@@ -39,7 +39,7 @@ class Combination {
 }
 
 class Master {
-  int id;
+  String id;
   List<String> fields;
   List<Combination> combinations;
 
@@ -49,7 +49,7 @@ class Master {
 enum Rating { Easy, Good, Hard, Again }
 
 class Review {
-  int master;
+  String master;
   Combination combination;
   DateTime ts;
   Rating rating;
@@ -58,7 +58,7 @@ class Review {
 }
 
 class DRCard {
-  int master;
+  String master;
   Combination combination;
   List<String> front;
   List<String> back;
@@ -71,7 +71,7 @@ class DRCard {
 }
 
 abstract class CardState {
-  int master;
+  String master;
   Combination combination;
 
   String mode;
@@ -85,7 +85,7 @@ abstract class CardState {
 
   bool operator ==(o) => o is CardState && master == o.master;
 
-  static makeInitialCardState({int id, Combination combination}) {
+  static makeInitialCardState({String id, Combination combination}) {
     return LearningCardState(
         master: id,
         combination: combination,
@@ -97,7 +97,7 @@ abstract class CardState {
 class LearningCardState extends CardState {
   int consecutiveCorrect;
   LearningCardState(
-      {int master,
+      {String master,
       Combination combination,
       this.consecutiveCorrect,
       DateTime lastReviewed,
@@ -110,7 +110,7 @@ class ReviewingCardState extends CardState {
   int lapses;
 
   ReviewingCardState({
-    int master,
+    String master,
     Combination combination,
     this.factor,
     this.lapses,
@@ -124,7 +124,7 @@ class LapsedCardState extends CardState {
   int lapses;
   int consecutiveCorrect;
   LapsedCardState(
-      {int master,
+      {String master,
       Combination combination,
       this.consecutiveCorrect,
       this.factor,
