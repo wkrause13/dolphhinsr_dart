@@ -122,7 +122,7 @@ class Utils {
             throw Exception("comparing duplicate id: $a");
           }
           //TODO CHECK THAT
-          return 0;
+          return a.id.compareTo(b.id) == -1 ? 0 : 1;
         });
         return first[0];
       }
@@ -270,7 +270,7 @@ class Utils {
   }
 
   static String getCardIdFromCardState(CardState cardState) {
-    String id = cardState.master;
+    int id = cardState.master;
     String frontJoin = cardState.combination.front.join(",");
     String backJoin = cardState.combination.back.join(",");
     return "$id#$frontJoin@$backJoin";
