@@ -1,4 +1,4 @@
-import 'package:dolphinsr_dart/src/models.dart';
+import './models.dart';
 import 'dart:math' as math;
 
 class Utils {
@@ -270,7 +270,7 @@ class Utils {
   }
 
   static String getCardIdFromCardState(CardState cardState) {
-    int id = cardState.master;
+    String id = cardState.master;
     String frontJoin = cardState.combination.front.join(",");
     String backJoin = cardState.combination.back.join(",");
     return "$id#$frontJoin@$backJoin";
